@@ -232,7 +232,7 @@ int main()
                             JumlahKapal++;
                         }
                     }
-                }
+                }//aaronganteng
                 else if(menu == 0){
                     editBoard = false;
                 }
