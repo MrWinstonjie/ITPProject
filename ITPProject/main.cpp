@@ -93,7 +93,7 @@ int main()
                                     board[YKapal1][XKapal1] = '+';
                                     board[YKapal1][XKapal1 + 1] = '+';
                                     YKapal1--;
-//                                    dy-=2;
+
                                 }
                                 else if (input == 'a'){
                                     board[YKapal1][XKapal1] = '+';
