@@ -76,40 +76,41 @@ int main()
                     }
                     else{
                         char input;
+                        dx = 0;
+                        dy = 0;
+                        board[dy][dx] = 'O';
+                        board[dy][dx + 1] = 'O';
                         while(input != 99){
-                            dx = 0;
-                            dy = 0;
                             system("cls");
                             printMap(board);
                             Sleep(300);
-                            board[dy][dx] = 'O';
-                            board[dy][dx + 1] = 'O';
                             if (kbhit()){
                                 input = getch();
-                                cin >> input;
                                 if (input == 'w'){
                                     board[dy][dx] = board[dy - 1][dx];
-                                    board[dy][dx] = board[dy - 2][dx];
+                                    board[dy][dx + 1] = board[dy - 1][dx];
 //                                    dy-=2;
                                 }
                                 else if (input == 'a'){
-                                    board[dy][dx] = board[dy][dx - 2];
-                                    board[dy][dx] = board[dy][dx - 4];
+                                    board[dy][dx] = board[dy][dx - 1];
+                                    board[dy][dx + 1] = board[dy][dx - 1];
 //                                    dx += 2;
                                 }
                                 else if (input == 's'){
                                     board[dy][dx] = board[dy + 1][dx];
-                                    board[dy][dx] = board[dy + 2][dx];
+                                    board[dy][dx + 1] = board[dy + 1][dx];
 //                                    dy += 2;
                                 }
                                 else if (input == 'd'){
-                                    board[dy][dx] = board[dy][dx + 4];
-                                    board[dy][dx] = board[dy][dx + 2];
+                                    board[dy][dx] = board[dy][dx + 1];
+                                    board[dy][dx + 1] = board[dy][dx + 1];
 //                                    dx -= 2;
                                 }
                                 else if (input == 'c'){
                                     Kapal1 = true;
                                 }
+
+
                             }
 
                         }
