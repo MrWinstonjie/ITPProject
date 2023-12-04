@@ -233,6 +233,7 @@ int main()
                         }
                     }
                 }//aaronganteng
+                //honggiekontol
                 else if(menu == 0){
                     editBoard = false;
                 }
