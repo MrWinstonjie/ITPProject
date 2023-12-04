@@ -38,6 +38,7 @@ int main()
     while(program)
     {
         int menu;
+        system("cls");
         cout << "Welcome to BattleShip!\n";
         cout << "1. Play\n";
         cout << "2. Edit Board\n";
@@ -61,6 +62,7 @@ int main()
             int menu;
             printMap(board);
             if(JumlahKapal < 7){
+                system("cls");
                 cout << "1. 2x1 ship" << endl;
                 cout << "2. 3x2 ship" << endl;
                 cout << "3. 2x2 ship" << endl;
@@ -75,39 +77,48 @@ int main()
                         cout << "Kapal 1 sudah dibuat" << endl << endl;
                     }
                     else{
+                        int XKapal1 = 0, YKapal1 = 0;
                         char input;
                         dx = 0;
                         dy = 0;
-                        board[dy][dx] = 'O';
-                        board[dy][dx + 1] = 'O';
                         while(input != 99){
                             system("cls");
                             printMap(board);
                             Sleep(300);
+                            board[YKapal1][XKapal1] = 'O';
+                            board[YKapal1][XKapal1 + 1] = 'O';
                             if (kbhit()){
                                 input = getch();
                                 if (input == 'w'){
-                                    board[dy][dx] = board[dy - 1][dx];
-                                    board[dy][dx + 1] = board[dy - 1][dx];
+                                    board[YKapal1][XKapal1] = '+';
+                                    board[YKapal1][XKapal1 + 1] = '+';
+                                    YKapal1--;
 //                                    dy-=2;
                                 }
                                 else if (input == 'a'){
-                                    board[dy][dx] = board[dy][dx - 1];
-                                    board[dy][dx + 1] = board[dy][dx - 1];
+                                    board[YKapal1][XKapal1] = '+';
+                                    board[YKapal1][XKapal1 + 1] = '+';
+                                    XKapal1--;
 //                                    dx += 2;
                                 }
                                 else if (input == 's'){
-                                    board[dy][dx] = board[dy + 1][dx];
-                                    board[dy][dx + 1] = board[dy + 1][dx];
+                                   board[YKapal1][XKapal1] = '+';
+                                    board[YKapal1][XKapal1 + 1] = '+';
+                                    YKapal1++;
 //                                    dy += 2;
                                 }
                                 else if (input == 'd'){
-                                    board[dy][dx] = board[dy][dx + 1];
-                                    board[dy][dx + 1] = board[dy][dx + 1];
-//                                    dx -= 2;
+                                    board[YKapal1][XKapal1] = '+';
+                                    board[YKapal1][XKapal1 + 1] = '+';
+                                    XKapal1++;
+
+//                                    board[dy][dx] = board[dy][dx + 1];
+//                                    board[dy][dx + 1] = board[dy][dx + 1];
+////                                    dx -= 2;
                                 }
                                 else if (input == 'c'){
                                     Kapal1 = true;
+
                                 }
 
 
