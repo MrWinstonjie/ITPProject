@@ -15,7 +15,7 @@ void printMap(char board[15][15]){
 
 int main()
 {
-    bool program = true, game = false, editBoard = false, Kapal1 = false, Kapal2 = false, Kapal3 = false, Kapal4 = false, Kapal5 = false, Kapal6 = false;
+    bool lihatBoard = false, program = true, game = false, editBoard = false, Kapal1 = false, Kapal2 = false, Kapal3 = false, Kapal4 = false, Kapal5 = false, Kapal6 = false;
     int dx, dy, JumlahKapal = 0;
     char board[15][15]=
     {
@@ -42,6 +42,7 @@ int main()
         cout << "Welcome to BattleShip!\n";
         cout << "1. Play\n";
         cout << "2. Edit Board\n";
+        cout << "3. Lihat Board\n";
         cout << "0. Exit\n";
         cout << ">>";
         cin >> menu;
@@ -50,6 +51,9 @@ int main()
         }
         else if(menu == 2){
             editBoard = true;
+        }
+        else if (menu == 3){
+            lihatBoard = true;
         }
         else if(menu == 0){
             program = false;
@@ -99,22 +103,17 @@ int main()
                                     board[YKapal1][XKapal1] = '+';
                                     board[YKapal1][XKapal1 + 1] = '+';
                                     XKapal1--;
-//                                    dx += 2;
                                 }
                                 else if (input == 's'){
                                    board[YKapal1][XKapal1] = '+';
                                     board[YKapal1][XKapal1 + 1] = '+';
                                     YKapal1++;
-//                                    dy += 2;
                                 }
                                 else if (input == 'd'){
                                     board[YKapal1][XKapal1] = '+';
                                     board[YKapal1][XKapal1 + 1] = '+';
                                     XKapal1++;
 
-//                                    board[dy][dx] = board[dy][dx + 1];
-//                                    board[dy][dx + 1] = board[dy][dx + 1];
-////                                    dx -= 2;
                                 }
                                 else if (input == 'c'){
                                     Kapal1 = true;
@@ -125,33 +124,7 @@ int main()
                             }
 
                         }
-//                        cout << "Koordinat x: ";
-//                        cin >> dx;
-//                        cout << "Koordinat y: ";
-//                        cin >> dy;
-//                        while(board[dy][dx * 2] == 'O' || board[dy][dx*2+2] == 'O' || board[dy][(dx*2-1)+1] == 'O' || board[dy][(dx*2-1)+3] == 'O'){
-//                            cout << "Koordinat kapal sudah terisi!" << endl << endl;
-//                            cout << "Koordinat x: ";
-//                            cin >> dx;
-//                            cout << "Koordinat y: ";
-//                            cin >> dy;
-//                        }
 
-//                        if ((dx > 13 || dx < 0) || (dy > 14 || dy < 0)){
-//                            cout << "Koordinat tidak terdeteksi!" << endl;
-//                            cout << endl;
-//                        }
-//                        else{
-//                            if (dx % 2 == 0){
-//                                board[dy][dx*2] = 'O';
-//                                board[dy][dx*2+2] = 'O';
-//                                JumlahKapal++;
-//                            } else {
-//                                board[dy][(dx*2-1)+1] = 'O';
-//                                board[dy][(dx*2-1)+3] = 'O';
-//                                JumlahKapal++;
-//                            }
-//                        }
                     }
 
                 }
@@ -364,6 +337,9 @@ int main()
                 cout << "Kapal sudah penuh..." << endl;
                 editBoard = false;
             }
+        }
+        if(lihatBoard){
+            printMap(board);
         }
     }
     return 0;
